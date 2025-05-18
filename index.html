@@ -8,6 +8,7 @@
   <meta name="msapplication-TileImage" content="https://www.walnut.io/app/uploads/2023/05/cropped-favicon-320x320.jpg" />
   <title>Walnut Extractor</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     body {
       font-family: sans-serif;
@@ -114,6 +115,13 @@
         const success = document.execCommand('copy');
         if (success) {
           showToast(`Copied demoId: ${text}`);
+
+          // 🎉 Trigger confetti
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
         } else {
           showToast('Failed to copy demoId.');
         }
